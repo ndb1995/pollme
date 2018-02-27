@@ -21,7 +21,7 @@ class QuestionListSerializer(ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('id', 'text', 'pub_date', 'choices')
+        fields = (text', 'pub_date', 'choices')
 
     def get_choices(self, obj):
         choices_qs = obj.choice_set.all()
@@ -31,4 +31,6 @@ class ChoiceSerializer(ModelSerializer):
     """
     This serializes the Choice model
     """
-    pass
+    class Meta:
+        model = Choice
+        fields = ('question', 'choice_text', 'votes')
